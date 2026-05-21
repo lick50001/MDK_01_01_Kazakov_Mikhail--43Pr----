@@ -13,19 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TaskManager_Kazakov
+namespace TaskManager_Kazakov.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Main.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Main : Page
     {
-        public static MainWindow init;
-        public MainWindow()
+        public Main()
         {
             InitializeComponent();
-            init = this;
-            DataContext = new VM_Pages();
+            DataContext = Context;
         }
     }
 }
