@@ -186,6 +186,8 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Notification.cs" />
     <Compile Include="Classes\RealyCommand.cs" />
+    <Compile Include="Context\TasksContext.cs" />
+    <Compile Include="Models\Tasks.cs" />
     <Compile Include="View\Items\Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
     </Compile>
@@ -244,8 +246,6 @@
     <Resource Include="Images\ic-task.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Context\" />
-    <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
