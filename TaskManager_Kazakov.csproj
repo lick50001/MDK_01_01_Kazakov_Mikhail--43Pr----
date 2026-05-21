@@ -184,7 +184,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Database\Config.cs" />
+    <Compile Include="Classes\Notification.cs" />
+    <Compile Include="Classes\RealyCommand.cs" />
     <Compile Include="View\Items\Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
     </Compile>
