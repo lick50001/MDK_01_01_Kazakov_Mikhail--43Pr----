@@ -1,28 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using System;
 
-namespace TaskManager_Kazakov.Classes
+public class RelayCommand : ICommand
 {
-    public class RealyCommand : ICommand
+    private Action<object> execute;
+    private Func<object, bool> canExecute;
+
+    public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
     {
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
-        public RealyCommand(Action<object> execute, Func<object, bool> executeFunc = null)
-        {
-            this.execute = execute;
-            canExecute = executeFunc;
-        }
+        this.execute = execute;
+        this.canExecute = canExecute;
+    }
 
-        public bool CanEcecute(object parameter)
-        {
-            return this.canExecute == null || this.canExecute(parameter);
-        }
+    public bool CanExecute(object parameter)
+    {
+        return this.canExecute == null || this.canExecute(parameter);
+    }
 
-        public void Execute(object parameter) =>
-            this.execute(parameter);
+    public void Execute(object parameter)
+    {
+        this.execute?.Invoke(parameter);
+    }
+
+    public event EventHandler CanExecuteChanged;
+
+    public void RaiseCanExecuteChanged()
+    {
+        CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }

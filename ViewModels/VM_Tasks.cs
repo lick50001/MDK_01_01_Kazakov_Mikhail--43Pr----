@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaskManager_Kazakov.Classes;
 using TaskManager_Kazakov.Context;
+using TaskManager_Kazakov.Models;
 
 namespace TaskManager_Kazakov.ViewModels
 {
@@ -13,24 +11,19 @@ namespace TaskManager_Kazakov.ViewModels
     {
         public TasksContext tasksContext = new TasksContext();
         public ObservableCollection<Tasks> Tasks { get; set; }
-        public VM_Tasks() =>
-            Tasks = new ObservableCollection<Tasks>(tasksContext.Tasks.OrderBy(t => t.Done));
 
-        public RealyCommand OnAddTask
+        public VM_Tasks()
         {
-            get
-            {
-                return new RealyCommand(obj =>
-                {
-                    Tasks NewTask = new Tasks()
-                    {
-                        DataExecute = DataTime.Now
-                    };
-                    Tasks.Add(NewTask);
-                    tasksContext.Tasks.Add(NewTask);
-                    tasksContext.SaveChanges();
-                })
-            }
+            var tasksList = tasksContext.Tasks.OrderBy(t => t.Done).ToList();
+            Tasks = new ObservableCollection<Tasks>(tasksList);
         }
+
+        public RelayCommand OnAddTask => new RelayCommand(obj =>
+        {
+            var newTask = new Tasks() { DateExecute = DateTime.Now };
+            Tasks.Add(newTask);
+            tasksContext.Tasks.Add(newTask);
+            tasksContext.SaveChanges();
+        });
     }
 }

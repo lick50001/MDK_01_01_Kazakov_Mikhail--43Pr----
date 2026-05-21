@@ -3,22 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TaskManager_Kazakov.View"
-     mc:Ignorable="d"
+      xmlns:items="clr-namespace:TaskManager_Kazakov.View.Items"
+      mc:Ignorable="d"
       Title="Main"
       d:DesignHeight="450" d:DesignWidth="800">
     <Page.Resources>
         <Style TargetType="Button" x:Key="Update">
-            <Setter Property="Background" Value="#FF2D61B"/>
-            <Setter Property="BorderBrush" Value="#FF2D61B"/>
+            <Setter Property="Background" Value="#FF2DD61B"/>
+            <Setter Property="BorderBrush" Value="#FF2DD61B"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
     </Page.Resources>
     <Grid>
-        <ListView ItemsSource="{Binding Tasks}" HorizontalContentAlignment="Stretch" Margin="0,0,0,45">
+        <ListView ItemsSource="{Binding Tasks}" 
+                  HorizontalContentAlignment="Stretch" 
+                  Margin="0,0,0,45">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <elements:Item DataContext="{Binding}"/>
+                    <items:Item />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -29,8 +31,7 @@
                 Width="70"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
-                Margin="0,0,10,10"
-                Grid.Column="1">
+                Margin="0,0,10,10">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5" BlurRadius="3" ShadowDepth="3"/>
             </Button.Effect>

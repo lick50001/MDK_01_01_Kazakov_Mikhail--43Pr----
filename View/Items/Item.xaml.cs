@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace TaskManager_Kazakov.View.Items
 {
-    /// <summary>
-    /// Логика взаимодействия для Item.xaml
-    /// </summary>
     public partial class Item : UserControl
     {
         public Item()
