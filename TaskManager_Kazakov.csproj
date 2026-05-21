@@ -188,6 +188,7 @@
     <Compile Include="Classes\RealyCommand.cs" />
     <Compile Include="Context\TasksContext.cs" />
     <Compile Include="Models\Tasks.cs" />
+    <Compile Include="ViewModels\VM_Pages.cs" />
     <Compile Include="View\Items\Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
     </Compile>
@@ -245,9 +246,7 @@
   <ItemGroup>
     <Resource Include="Images\ic-task.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\ic-close.png" />
   </ItemGroup>
