@@ -189,6 +189,7 @@
     <Compile Include="Context\TasksContext.cs" />
     <Compile Include="Models\Tasks.cs" />
     <Compile Include="ViewModels\VM_Pages.cs" />
+    <Compile Include="ViewModels\VM_Tasks.cs" />
     <Compile Include="View\Items\Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
     </Compile>
